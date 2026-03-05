@@ -3,6 +3,7 @@ import { AuthProvider, AuthContext } from './contexts/AuthContext'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import Navbar from './components/Navbar'
 import LoginPage from './pages/LoginPage'
+import DashboardPage from './pages/DashboardPage'
 import RequestsPage from './pages/RequestsPage'
 import MapPage from './pages/MapPage'
 import IncidentsPage from './pages/IncidentsPage'
@@ -58,6 +59,14 @@ function AppContent() {
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/"
+          element={
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/requests"
           element={
             <ProtectedRoute>
               <RequestsPage />
